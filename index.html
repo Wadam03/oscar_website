@@ -2,36 +2,181 @@
 
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
-            integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
 
-        <title>Oscar messes about with my website >:(</title>
-    </head>
+    <script>
+        let buttonPresses = 0;
 
-    <body>
+        function onButtonClick(btnId) {
+
+            console.log(btnId)
+
+            const button = document.getElementById(btnId);
+            const collapse1 = document.getElementById("collapse1");
+            if (!button) return;
+
+            // perform different actions based on what button was pressed
+            if (btnId === "bt1"){
+                alert("WHY YOU MAKE ME WRITE PLAIN JAVASCRIPT?! WHY!")
+
+                collapse1.classList.add("show");
+                return;
+            }
+
+            if (btnId === "bt2"){
+                alert("WHY YOU MAKE ME WRITE PLAIN JAVASCRIPT?! WHY!")
+
+                // rickroll my bro :P
+                // (if you're reading comments - good on you!)
+                window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+                return;
+            }
+
+            if (btnId === "bt3"){
+                buttonPresses++;
+
+                if (buttonPresses < 5) return;
+
+                // Only do stuff if you pressed it 5 times. 
+
+                alert(`You pressed this button ${buttonPresses} times! well done!`)
+
+                const container1 = document.getElementById("container1");
+                const container2 = document.getElementById("container2");
+                if (!container1 || !container2) return;
+                container2.classList.remove("d-none");
+                container2.classList.add("d-initial");
+                
+                container1.classList.add("d-none");
+                return;
+            }
+
+        }
+    </script>
+
+    <title>Oscar messes about with my website >:(</title>
+</head>
+
+<body>
+    <main class="app">
         <div class="adjust-line-height">
-            <h1>This is such a plain page!</h1>
-            <p class="fs-5">I really hope some super pro latvian developer</p>
-            <p class="fs-1">could help pimp it out for me!</p>
-            <p>also if you could explain why fs-1 and fs-5 don't work i'd really appreciate that :)))</p>
+            <div class="container-fluid">
+                <div class="container d-none" id="container2">
+
+                        <h1 class="text-danger" style="font-size: 350px;">
+                            NOW SUFFER!
+                        </h1>
+                        <h3 class="text-warning" style="font-size: 250px;">
+                            WHY YOU MAKE ME DO PURE HTML
+                        </h1>
+
+                </div>
+                <div id="container1" class="container">
+                    <div class="row">
+                        <div class="col col-sm-6">
+                            <div class="card m-2">
+                                <div class="card-header bg-white">
+                                    <img class="card-img-top mb-2" style="height: 150px; object-fit: contain"
+                                        src="https://st2.depositphotos.com/1001911/7684/v/450/depositphotos_76840879-stock-illustration-depressed-emoticon.jpg"
+                                        alt="sad face" />
+                                </div>
+
+                                <div class="card-body bg-light ">
+                                    <h5 class="card-title">
+                                        This is <em>still</em> such a plain page!
+                                    </h5>
+                                    <p>
+                                        I can only do so much with plain html and Bootstrap in a few hours.<br>
+                                        Oh, by the way. This page is
+                                    </p>
+                                    <div class="alert alert-danger">
+                                        Whatever the button below says, don't listen to it!
+                                    </div>
+                                    <div id="collapse1" class="collapse">
+                                      <h1 class="text-danger">
+                                          I TOLD YOU DON'T LISTEN TO IT. I TOLD YOU!
+                                      </h1>
+                                    </div>
+                                    <button id="bt1" type="button" onclick="onButtonClick('bt1')"
+                                        class="btn btn-dark">Press Me</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col col-sm-6">
+                            <div class="card m-2 text-light">
+                                <div class="card-header bg-black">
+                                    <img class="card-img-top mb-2" style="height: 150px; object-fit: contain"
+                                        src="https://images.discerningassets.com/image/upload/c_fit,h_1000,w_1000/c_fit,fl_relative,h_1.0,o_100,w_1.0/ar_5125:7250,c_fill/c_crop,h_0.9655172413793104,w_0.975609756097561,x_0,y_0.017241379310344827/v1503393803/asf-happyface_d7rv9j.jpg"
+                                        alt="sad face" />
+                                </div>
+                                <div class="card-body bg-secondary">
+                                    <h5 class="card-title">
+                                        This is <em>still</em> such a <strong>CREEEPY</strong> page!
+                                    </h5>
+                                    <p>
+                                        Why did I decide to use those emiticons? God only knows. And by that I mean
+                                        <em>no one</em> knows, cause god does not exist.
+                                        LOLOLOLOLLOL
+                                    </p>
+                                    <div class="alert alert-warning">
+                                        Press at your own risk
+                                    </div>
+                                    <button id="bt2" type="button" onclick="onButtonClick('bt2')"
+                                        class="btn btn-danger">
+                                        DO NOT Press Me
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-sm-6 col-lg-12">
+                            <div class="card m-2">
+                                <div class="card-header bg-warning">
+                                    <img class="card-img-top mb-2" style="height: 150px; object-fit: contain"
+                                        src="https://rtmiatex.blob.core.windows.net/public/clipart642500.png"
+                                        alt="face" />
+
+                                </div>
+
+                                <div class="card-body bg-success text-light">
+                                    <h5 class="card-title">
+                                        A story about the image above
+                                    </h5>
+                                    <p>
+                                        So this image is actually hosted on my cloud (Azure) account in Blob
+                                        storage.<br>
+                                        I created it for the Radiant Miatex project I am working on. You can tell by the
+                                        image url.
+                                        Other images there are for cutomer logos on our website and various documents.
+                                    </p>
+                                    <p>
+                                        Had to do it this way, as nobody is hosting transparent pngs apparently...
+                                    </p>
+                                    <div class="alert alert-info">
+                                        You know what. Press this button. Really. Just do it.
+                                    </div>
+                                    <button id="bt3" type="button" onclick="onButtonClick('bt3')"
+                                        class="btn btn-primary">Press Me</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </body>
+        </div>
+    </main>
+</body>
 
 </html>
-
-
-
-
-
-
-
